@@ -11,7 +11,7 @@ inline bool Comp64High32Low32(uint64_t A, uint64_t B)
 
 inline bool RevComp64Low32High32(uint64_t A, uint64_t B)
 {
-    return (A << 32 | (A & 0xffffffff)) > (B << 32 | (B & 0xffffffff));
+    return ((A << 32) | (A >> 32)) > ((B << 32) | (B >> 32));
 }
 
 /*void QSort(void *base, size_t nel, size_t width,
