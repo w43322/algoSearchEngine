@@ -2,34 +2,26 @@
 #define SORTING_H
 
 #include <cstdlib>
+#include <algorithm>
 
-int Comp64High32Low32(const void* A, const void* B)
+inline bool Comp64High32Low32(uint64_t A, uint64_t B)
 {
-    int highDif = (*(int64_t*)A >> 32) - (*(int64_t*)B >> 32);
-    if (highDif)
-        return highDif;
-    else
-        return (int)(*(int64_t*)A & 0xffffffff) - (*(int64_t*)B & 0xffffffff);
+    return A < B;
 }
 
-int Comp64Low32High32(const void* A, const void* B)
+inline bool RevComp64Low32High32(uint64_t A, uint64_t B)
 {
-    int lowDif = (*(int64_t*)A & 0xffffffff) - (*(int64_t*)B & 0xffffffff);
-    if (lowDif)
-        return lowDif;
-    else
-        return (*(int64_t*)A >> 32) - (*(int64_t*)B >> 32);
+    return (A << 32 | (A & 0xffffffff)) > (B << 32 | (B & 0xffffffff));
 }
 
-int RevComp64Low32High32(const void* A, const void* B)
-{
-    return -Comp64Low32High32(A, B);
-}
-
-void QSort(void *base, size_t nel, size_t width,
+/*void QSort(void *base, size_t nel, size_t width,
 	    int (* compar)(const void *, const void *))
 {
     qsort(base, nel, width, compar);
+}*/
+void QSort(std::vector<uint64_t>& arr, bool (*comp)(uint64_t A, uint64_t B))
+{
+    std::sort(arr.begin(), arr.end(), comp);
 }
 
 #endif // SORTING_H
