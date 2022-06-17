@@ -171,6 +171,11 @@ public:
     }
     void InitInvertedIndex(clock_t t0, std::vector<uint64_t>& tempIndex, const std::string& suffix)
     {
+        system("mkdir wordList_cn");
+        system("mkdir wordList_en");
+        system("mkdir tempIndex_cn");
+        system("mkdir tempIndex_en");
+
         auto t1 = std::clock();
 
         // output word list
