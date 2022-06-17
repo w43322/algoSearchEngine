@@ -300,7 +300,7 @@ int main(void)
 
 	puts("这是东北大学2022算法课设作业，感谢李老师的悉心指导，组长：王艺霖，组员：魏思源，组员：徐文栋");
 	puts("Good Bye!"); 
-	//system("pause");
+	PauseAndTip();
 
 	return 0;
 }

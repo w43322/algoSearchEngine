@@ -1,18 +1,7 @@
 #ifndef SORTING_H
 #define SORTING_H
 
-#include <cstdlib>
-#include <algorithm>
-
-inline bool Comp64High32Low32(uint64_t A, uint64_t B)
-{
-    return A < B;
-}
-
-inline bool RevComp64Low32High32(uint64_t A, uint64_t B)
-{
-    return ((A << 32) | (A >> 32)) > ((B << 32) | (B >> 32));
-}
+#include <cstring>
 
 typedef union {
     struct {
@@ -223,13 +212,5 @@ uint64_t * radixSortLowHigh(uint64_t * array, uint32_t size) {
     free(cpy);
     return array;
 }
-
-/*void QSort(std::vector<uint64_t>& arr, bool (*comp)(uint64_t A, uint64_t B))
-{
-    size_t siz = arr.size();
-    auto new_arr = radixSort(&arr[0], siz);
-    arr = std::vector<uint64_t>(new_arr, new_arr + siz);
-    //std::sort(arr.begin(), arr.end(), comp);
-}*/
 
 #endif // SORTING_H
