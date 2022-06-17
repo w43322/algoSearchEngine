@@ -24,7 +24,7 @@ uint64_t * radixSortHighLow(uint64_t * array, uint32_t size) {
     uint32_t o8=0, o7=0, o6=0, o5=0, o4=0, o3=0, o2=0, o1=0;
     uint32_t t8, t7, t6, t5, t4, t3, t2, t1;
     uint32_t x;
-    // calculate counts
+    // 计算每8位中每种“情况(0到255之一)”出现的次数
     for(x = 0; x < size; x++) {
         t8 = array[x] & 0xff;
         t7 = (array[x] >> 8) & 0xff;
@@ -43,7 +43,7 @@ uint64_t * radixSortHighLow(uint64_t * array, uint32_t size) {
         counts.c2[t2]++;
         counts.c1[t1]++;
     }
-    // convert counts to offsets
+    // 把基数转换为偏移量
     for(x = 0; x < 256; x++) {
         t8 = o8 + counts.c8[x];
         t7 = o7 + counts.c7[x];
@@ -70,7 +70,7 @@ uint64_t * radixSortHighLow(uint64_t * array, uint32_t size) {
         o2 = t2; 
         o1 = t1;
     }
-    // radix
+    // 基数排序
     for(x = 0; x < size; x++) {
         t8 = array[x] & 0xff;
         cpy[counts.c8[t8]] = array[x];
@@ -122,7 +122,6 @@ uint64_t * radixSortLowHigh(uint64_t * array, uint32_t size) {
     uint32_t o8=0, o7=0, o6=0, o5=0, o4=0, o3=0, o2=0, o1=0;
     uint32_t t8, t7, t6, t5, t4, t3, t2, t1;
     uint32_t x;
-    // calculate counts
     for(x = 0; x < size; x++) {
         t8 = array[x] & 0xff;
         t7 = (array[x] >> 8) & 0xff;
@@ -141,7 +140,6 @@ uint64_t * radixSortLowHigh(uint64_t * array, uint32_t size) {
         counts.c2[t2]++;
         counts.c1[t1]++;
     }
-    // convert counts to offsets
     for(x = 0; x < 256; x++) {
         t8 = o8 + counts.c8[x];
         t7 = o7 + counts.c7[x];
@@ -168,7 +166,6 @@ uint64_t * radixSortLowHigh(uint64_t * array, uint32_t size) {
         o2 = t2; 
         o1 = t1;
     }
-    // radix
     for(x = 0; x < size; x++) {
         t4 = (array[x] >> 32) & 0xff;
         cpy[counts.c4[t4]] = array[x];
