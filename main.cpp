@@ -256,7 +256,6 @@ int main(void)
 {
 	int input = 0;
 
-    system(cls);
 	welcome();
 	PauseAndTip();
 	system(cls);
