@@ -200,10 +200,10 @@ public:
         auto t4 = std::clock();
 
         // time output
-        std::cout << "temp index generation is finished in " << (t1 - t0) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
-        std::cout << "word list output is finished in " << (t2 - t1) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
-        std::cout << "temp index output is finished in " << (t3 - t2) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
-        std::cout << "inverted index generation is finished in " << (t4 - t3) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
+        std::cout << " - Temp index generation is finished in " << (t1 - t0) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
+        std::cout << "   - Word list output is finished in " << (t2 - t1) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
+        std::cout << "   - Temp index output is finished in " << (t3 - t2) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
+        std::cout << " - Inverted index generation is finished in " << (t4 - t3) / (double)(CLOCKS_PER_SEC / 1000) << "msecs.\n";
     }
 private:
     WordList wl;
