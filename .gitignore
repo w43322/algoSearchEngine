@@ -1,2 +1,9 @@
 .DS_Store
 main
+tempIndex_cn/
+tempIndex_en/
+wordList_cn/
+wordList_en/
+.idea/
+test/
+__pycache__/

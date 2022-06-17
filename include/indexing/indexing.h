@@ -10,7 +10,9 @@ public:
     InvertedIndex(){}
     InvertedIndex(std::vector<uint64_t>& tempIndex)
     {
-        QSort(tempIndex, Comp64High32Low32);
+        radixSortHighLow(&tempIndex[0], tempIndex.size());
+        //tempIndex.assign(arr, arr + len);
+        //QSort(tempIndex, Comp64High32Low32);
         size_t siz = -1;
         for (auto&& record : tempIndex)
         {

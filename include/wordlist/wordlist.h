@@ -7,6 +7,17 @@
 class WordList
 {
 public:
+    void Output(std::ostream& out)
+    {
+        for (int i = 0; i < 65536; ++i)
+        {
+            auto&& hashValue = hTable.data[i];
+            for (auto&& record : hashValue)
+            {
+                out << i << ' ' << record.first << ' ' << record.second << '\n';
+            }
+        }
+    }
     uint32_t GetWordId(const std::string& word)
     {
         int wordId = hTable.At(word);
